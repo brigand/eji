@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cat data/emoji.json | jq -r 'keys[]' > data/emoji-completion
+

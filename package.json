@@ -1,0 +1,27 @@
+{
+  "name": "eji",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+      "eji": "./bin/eji"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigand/eji.git"
+  },
+  "author": "Frankie Bagnardi <f.bagnardi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brigand/eji/issues"
+  },
+  "homepage": "https://github.com/brigand/eji#readme",
+  "dependencies": {
+    "codepoint": "0.0.0",
+    "debug": "^2.2.0",
+    "levenshtein": "^1.0.5"
+  }
+}

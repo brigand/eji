@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var eji = require('../index');
+main();
+
+function main(){
+    if (process.argv[2] && process.argv[2] !== '-') {
+        eji(process.argv[2]);
+    }
+    else if (!process.stdin.isTTY) {
+        readStdin(function(err, text){
+            eji(text);
+        });
+    }
+    else {
+        console.error('Usage: eji arg');
+        console.error('Alternative: echo text | eji');
+        console.error('');
+        console.error('\ttext\tan emoji character or an emoji string');
+        console.error('');
+        console.error('Examples:');
+        console.error(' eji door');
+        console.error(' eji 🚪');
+        process.exit(1);
+    }
+}
+
+function readStdin(cb){
+    process.stdin.setEncoding('utf8');
+    var buffer = '';
+
+    process.stdin.on('readable', function() {
+        var chunk = process.stdin.read();
+        if (chunk !== null) {
+            buffer += chunk;
+        }
+    });
+
+    process.stdin.on('end', function() {
+        cb(null, chunk);
+    });
+}
